@@ -5,6 +5,8 @@ package com.zhoufan.volatilestudy;
  *
  * 不加volatile叫做DCL单例模式.
  *
+ * 懒汉 DCL double Check Lock
+ *
  * @author Create in ZhouFan, 2019-07-26
  * @version v1.0
  */
@@ -20,7 +22,7 @@ public class SingleModel {
         if(instance==null){
             synchronized (SingleModel.class){
                 if(instance==null){
-                    //实例生成分三步 分配内存 初始化 地址赋值
+                    //实例生成分三步 分配内存 初始化 地址赋值 关联classload 类加载
                     //指令重排会导致未初始化就去调用功能 会产生报错
                     instance=new SingleModel();
                 }
