@@ -9,18 +9,14 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>study-zhoufan-redis</artifactId>
+    <artifactId>study-zhoufan-classload</artifactId>
     <packaging>jar</packaging>
     <description>redis 学习</description>
 
-    <name>STUDY-ZHOUFAN-REDIS</name>
+    <name>STUDY-ZHOUFAN-CLASSLOAD</name>
     <url>http://maven.apache.org</url>
 
     <dependencies>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-redis</artifactId>
-        </dependency>
     </dependencies>
     <!-- Package as an executable jar -->
     <build>
