@@ -6,6 +6,8 @@
     <modules>
         <module>study-zhoufan-classload</module>
         <module>study-zhoufan-base</module>
+        <module>study-zhoufan-kafka</module>
+        <module>study-zhoufan-refactoringdemostration</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
