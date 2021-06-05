@@ -27,9 +27,27 @@
         <project.springboot.version>2.1.4.RELEASE</project.springboot.version>
     </properties>
     <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>spring.boot.starter.data.redis</groupId>
+                <artifactId>spring-boot-starter-data-redis</artifactId>
+                <version>${project.springboot.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-web</artifactId>
+                <version>${project.springboot.version}</version>
+            </dependency>
+
+        </dependencies>
     </dependencyManagement>
     <dependencies>
-
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+            <version>2.1.4.RELEASE</version>
+        </dependency>
     </dependencies>
     <!-- 插件配置 -->
     <build>
