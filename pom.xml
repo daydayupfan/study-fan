@@ -5,6 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
     <modules>
         <module>study-zhoufan-classload</module>
+        <module>study-zhoufan-base</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>

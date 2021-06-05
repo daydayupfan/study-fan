@@ -11,7 +11,7 @@
 
     <artifactId>study-zhoufan-classload</artifactId>
     <packaging>jar</packaging>
-    <description>redis 学习</description>
+    <description>类加载器 学习</description>
 
     <name>STUDY-ZHOUFAN-CLASSLOAD</name>
     <url>http://maven.apache.org</url>
