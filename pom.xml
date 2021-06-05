@@ -20,20 +20,12 @@
     <name>STUDY-ZHOUFAN</name>
     <url>http://maven.apache.org</url>
 
-
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>1.8</java.version>
         <project.springboot.version>2.1.4.RELEASE</project.springboot.version>
     </properties>
     <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>spring.boot.starter.data.redis</groupId>
-                <artifactId>spring-boot-starter-data-redis</artifactId>
-                <version>${project.springboot.version}</version>
-            </dependency>
-        </dependencies>
     </dependencyManagement>
     <dependencies>
 
