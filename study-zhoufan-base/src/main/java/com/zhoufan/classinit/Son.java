@@ -15,6 +15,7 @@ public class Son extends Father {
         System.out.print("(6)");
     }
 
+    
     Son() {
         System.out.print("(7)");
     }
