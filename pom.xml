@@ -8,6 +8,7 @@
         <module>study-zhoufan-base</module>
         <module>study-zhoufan-kafka</module>
         <module>study-zhoufan-refactoringdemostration</module>
+        <module>study-zhoufan-netty</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
