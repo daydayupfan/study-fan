@@ -1,5 +1,5 @@
 package com.swrd.lecture.substitute_algorithm;
- 
+
 class Origin {
 
     public double totalPrice = 1000.0;
@@ -22,6 +22,6 @@ class Origin {
 
     public static void main(String[] args) {
         new Origin().calcPrice(2);
-    }   
+    }
 }
 

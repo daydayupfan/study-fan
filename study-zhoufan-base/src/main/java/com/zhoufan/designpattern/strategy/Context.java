@@ -15,19 +15,20 @@ import lombok.Setter;
 
 @Setter
 public class Context {
-    
+
     private Strategy strategy;
 
-    public Context(){}
-    
-    public int executeStrategy(int num1, int num2){
+    public Context() {
+    }
+
+    public int executeStrategy(int num1, int num2) {
         return strategy.doOperation(num1, num2);
     }
 
 
     public static void main(String[] args) {
-        Context c=new Context();
-        
+        Context c = new Context();
+
         c.setStrategy(new AddOperation());
 
         System.out.println(c.executeStrategy(1, 2));

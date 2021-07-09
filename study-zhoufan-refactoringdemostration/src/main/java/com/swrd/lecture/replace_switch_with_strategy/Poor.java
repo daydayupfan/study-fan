@@ -9,5 +9,5 @@ public class Poor extends FeeType {
     public double getFactor() {
         return 0.8;
     }
-    
+
 }

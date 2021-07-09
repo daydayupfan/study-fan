@@ -23,15 +23,15 @@ public class CountDownLatchDemo {
     protected static void countDownLatchDemoT() {
         /**
          * 可以保证子线程完成后再执行主线程
-         * 
+         *
          * 秦国统一六国  一个一个干掉 干掉6个才统一全国
          */
-        CountDownLatch countDownLatch=new CountDownLatch(6);
-        for(int i = 1;i <= 6; i++){
-            new Thread(()->{
-                System.out.println(Thread.currentThread().getName()+" 已走出教室");
+        CountDownLatch countDownLatch = new CountDownLatch(6);
+        for (int i = 1; i <= 6; i++) {
+            new Thread(() -> {
+                System.out.println(Thread.currentThread().getName() + " 已走出教室");
                 countDownLatch.countDown();
-            }, i+"").start();
+            }, i + "").start();
         }
         try {
             countDownLatch.await();

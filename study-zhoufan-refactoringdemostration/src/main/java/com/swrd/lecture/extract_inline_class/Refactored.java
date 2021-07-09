@@ -5,9 +5,9 @@ package com.swrd.lecture.extract_inline_class;
  */
 public class Refactored {
 
-    public class MemberFee{
+    public class MemberFee {
 
-        public MemberFee(){
+        public MemberFee() {
             this.discountFactor = 0.8;
             this.deploymentFee = 2;
         }

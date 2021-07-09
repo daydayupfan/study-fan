@@ -9,5 +9,5 @@ public class Normal extends FeeType {
     public double getFactor() {
         return 1.0;
     }
-    
+
 }

@@ -30,7 +30,7 @@ public class Main {
             }
         }
 
-        if(flag){
+        if (flag) {
             System.out.println("Found!");
             return;
         }
@@ -50,7 +50,7 @@ public class Main {
             }
         }
 
-        if(flag){
+        if (flag) {
             System.out.println("Found!");
             return;
         }

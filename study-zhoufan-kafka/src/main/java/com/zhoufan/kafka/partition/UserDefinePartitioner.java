@@ -11,10 +11,9 @@ import java.util.concurrent.atomic.AtomicInteger;
  * 自定义分区策略
  */
 public class UserDefinePartitioner implements Partitioner {
-    private AtomicInteger atomicInteger=new AtomicInteger(0);
+    private AtomicInteger atomicInteger = new AtomicInteger(0);
 
     /**
-     * 
      * @param topic
      * @param key
      * @param keyBytes
@@ -26,7 +25,7 @@ public class UserDefinePartitioner implements Partitioner {
     @Override
     public int partition(String topic, Object key, byte[] keyBytes, Object value, byte[] valueBytes, Cluster cluster) {
         int numPartitions = cluster.partitionsForTopic(topic).size();
-        if(keyBytes==null || keyBytes.length==0){
+        if (keyBytes == null || keyBytes.length == 0) {
             //key 不存在 都存在0分区
             return 2;
         } else {

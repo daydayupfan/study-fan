@@ -10,5 +10,5 @@ public class Rich extends FeeType {
     public double getFactor() {
         return 1.2;
     }
-    
+
 }

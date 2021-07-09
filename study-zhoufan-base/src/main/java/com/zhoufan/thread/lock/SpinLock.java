@@ -22,41 +22,54 @@ public class SpinLock {
      * t1解锁.....
      * t2解锁.....
      */
-    AtomicReference<Thread> atomicReference=new AtomicReference<>();
-    
-    public void lock(){
-       
+    AtomicReference<Thread> atomicReference = new AtomicReference<>();
+
+    public void lock() {
+
         //当前线程
-        Thread thread=Thread.currentThread();
-        System.out.println(Thread.currentThread().getName()+"加锁.....");
-        while(!atomicReference.compareAndSet(null, thread)){}
+        Thread thread = Thread.currentThread();
+        System.out.println(Thread.currentThread().getName() + "加锁.....");
+        while (!atomicReference.compareAndSet(null, thread)) {
+        }
     }
 
 
-    public void unlock(){
+    public void unlock() {
         //当前线程
-        Thread thread=Thread.currentThread();
+        Thread thread = Thread.currentThread();
         atomicReference.compareAndSet(thread, null);
-        System.out.println(Thread.currentThread().getName()+"解锁.....");
+        System.out.println(Thread.currentThread().getName() + "解锁.....");
     }
 
     public static void main(String[] args) {
-        
-        SpinLock lock=new SpinLock();
-        
-        new Thread(()->{
+
+        SpinLock lock = new SpinLock();
+
+        new Thread(() -> {
             lock.lock();
-            try {TimeUnit.SECONDS.sleep(5);} catch (InterruptedException e) {e.printStackTrace();}
+            try {
+                TimeUnit.SECONDS.sleep(5);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
             lock.unlock();
         }, "t1").start();
-        
-        try {TimeUnit.SECONDS.sleep(1);} catch (InterruptedException e) {e.printStackTrace();}
-        
-        new Thread(()->{
+
+        try {
+            TimeUnit.SECONDS.sleep(1);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        new Thread(() -> {
             lock.lock();
-            try {TimeUnit.SECONDS.sleep(5);} catch (InterruptedException e) {e.printStackTrace();}
+            try {
+                TimeUnit.SECONDS.sleep(5);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
             lock.unlock();
         }, "t2").start();
-        
+
     }
 }

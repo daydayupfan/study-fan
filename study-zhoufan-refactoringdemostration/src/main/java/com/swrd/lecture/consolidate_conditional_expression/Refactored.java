@@ -21,7 +21,7 @@ public class Refactored {
             return 0;
 
         // do further processing
-        
+
         return a;
     }
 

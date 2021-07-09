@@ -2,9 +2,9 @@ package com.zhoufan.volatilestudy;
 
 /**
  * SingleModel
- *
+ * <p>
  * 不加volatile叫做DCL单例模式.
- *
+ * <p>
  * 懒汉 DCL double Check Lock
  *
  * @author Create in ZhouFan, 2019-07-26
@@ -14,17 +14,17 @@ public class SingleModel {
 
     private volatile static SingleModel instance;
 
-    private SingleModel(){
+    private SingleModel() {
         System.out.println(Thread.currentThread().getName());
     }
 
-    public static SingleModel getInstance(){
-        if(instance==null){
-            synchronized (SingleModel.class){
-                if(instance==null){
+    public static SingleModel getInstance() {
+        if (instance == null) {
+            synchronized (SingleModel.class) {
+                if (instance == null) {
                     //实例生成分三步 分配内存 初始化 地址赋值 关联classload 类加载
                     //指令重排会导致未初始化就去调用功能 会产生报错
-                    instance=new SingleModel();
+                    instance = new SingleModel();
                 }
             }
         }
@@ -32,10 +32,10 @@ public class SingleModel {
     }
 
     public static void main(String[] args) {
-        for (int i = 0; i <1000000 ; i++) {
-            new Thread(()->{
+        for (int i = 0; i < 1000000; i++) {
+            new Thread(() -> {
                 SingleModel.getInstance();
-            },i+"").start();
+            }, i + "").start();
         }
     }
 }

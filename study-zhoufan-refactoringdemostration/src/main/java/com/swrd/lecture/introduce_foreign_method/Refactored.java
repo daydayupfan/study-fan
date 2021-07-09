@@ -24,8 +24,8 @@ public class Refactored {
         System.out.println("Fee is " + (this.cost * this.discountFactor + this.deploymentFee));
     }
 
-    public static Refactored getRefactored(){
-        return  new Refactored(2.0, 0.9, 100);
+    public static Refactored getRefactored() {
+        return new Refactored(2.0, 0.9, 100);
     }
 
     public static void main(String[] args) {

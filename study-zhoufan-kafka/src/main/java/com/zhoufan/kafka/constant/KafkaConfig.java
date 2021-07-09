@@ -15,8 +15,8 @@ public class KafkaConfig {
 
     public static final String BOOTSTRAP_SERVER = "centos1:9092,centos2:9092,centos3:9092";
     public static final String BOOTSTRAP_SERVER_SINGLE = "centos4:9092";
-    
-    public static String getBootstrapServer(){
+
+    public static String getBootstrapServer() {
         return BOOTSTRAP_SERVER_SINGLE;
     }
 }

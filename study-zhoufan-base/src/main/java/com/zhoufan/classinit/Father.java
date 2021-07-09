@@ -2,19 +2,18 @@ package com.zhoufan.classinit;
 
 /**
  * 类加载与实例化顺序
- *
  */
 public class Father {
 
-    private int i=test();
+    private int i = test();
 
-    private static int j=method();
+    private static int j = method();
 
-    static{
+    static {
         System.out.print("(1)");
     }
 
-    Father(){
+    Father() {
         System.out.print("(2)");
     }
 
@@ -23,14 +22,14 @@ public class Father {
     }
 
 
-    public int test(){
+    public int test() {
         System.out.print("(4)");
         return 1;
     }
 
 
-    public static  int method(){
+    public static int method() {
         System.out.print("(5)");
-        return  1;
+        return 1;
     }
 }

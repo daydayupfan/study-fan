@@ -8,7 +8,7 @@ class Refactored {
     public double totalPrice = 1000.0;
 
     public void calcPrice(int memberType) {
-        final List<Double> discountFactors = Arrays.asList(1.0,0.9,0.8,0.7,0.6);
+        final List<Double> discountFactors = Arrays.asList(1.0, 0.9, 0.8, 0.7, 0.6);
         double factor = 1.0;
 
         if (memberType >= discountFactors.size()) {

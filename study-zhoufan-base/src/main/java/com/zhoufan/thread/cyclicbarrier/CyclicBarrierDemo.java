@@ -20,13 +20,13 @@ public class CyclicBarrierDemo {
      */
 
     public static void main(String[] args) {
-        CyclicBarrier cyclicBarrier=new CyclicBarrier(7, ()->{
+        CyclicBarrier cyclicBarrier = new CyclicBarrier(7, () -> {
             System.out.println("出来吧 神龙  实现我的一切愿望！");
         });
-        
-        for(int i = 1; i <= 7; i++){
-            new  Thread(()->{
-                System.out.println("收集到第"+Thread.currentThread().getName()+"颗龙珠！");
+
+        for (int i = 1; i <= 7; i++) {
+            new Thread(() -> {
+                System.out.println("收集到第" + Thread.currentThread().getName() + "颗龙珠！");
                 try {
                     cyclicBarrier.await();
                 } catch (InterruptedException e) {
@@ -34,7 +34,7 @@ public class CyclicBarrierDemo {
                 } catch (BrokenBarrierException e) {
                     e.printStackTrace();
                 }
-            }, i+"").start();
+            }, i + "").start();
         }
     }
 }

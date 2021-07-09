@@ -19,52 +19,53 @@ public class SynchronousQueueDemo {
 
     /**
      * 1、队列
-     * 
-     * 
-     * 
+     * <p>
+     * <p>
+     * <p>
      * 2、阻塞队列
-     *   2.1、阻塞队列有没有好的一面
-     *   2.2、不得不阻塞，你如何管理
-     * 
-     * 
-     * 
-     * 
+     * 2.1、阻塞队列有没有好的一面
+     * 2.2、不得不阻塞，你如何管理
+     * <p>
+     * <p>
+     * <p>
+     * <p>
      * SynchronousQueue同步队列
+     *
      * @param args
      */
     public static void main(String[] args) {
-        BlockingQueue<String> queue=new SynchronousQueue();
-        new Thread(()->{
+        BlockingQueue<String> queue = new SynchronousQueue();
+        new Thread(() -> {
             try {
-                System.out.println(Thread.currentThread().getName()+"    put 1");
+                System.out.println(Thread.currentThread().getName() + "    put 1");
                 queue.put("1");
-                
-                System.out.println(Thread.currentThread().getName()+"    put 2");
+
+                System.out.println(Thread.currentThread().getName() + "    put 2");
                 queue.put("2");
-                
-                System.out.println(Thread.currentThread().getName()+"    put 3");
+
+                System.out.println(Thread.currentThread().getName() + "    put 3");
                 queue.put("3");
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
         }, "t1").start();
 
-        new Thread(()->{
+        new Thread(() -> {
             try {
                 TimeUnit.SECONDS.sleep(5);
-                System.out.println(Thread.currentThread().getName()+"    get 1");
+                System.out.println(Thread.currentThread().getName() + "    get 1");
                 queue.take();
 
                 TimeUnit.SECONDS.sleep(5);
-                System.out.println(Thread.currentThread().getName()+"    get 2");
+                System.out.println(Thread.currentThread().getName() + "    get 2");
                 queue.take();
-               
+
                 TimeUnit.SECONDS.sleep(5);
-                System.out.println(Thread.currentThread().getName()+"    get 3");
+                System.out.println(Thread.currentThread().getName() + "    get 3");
                 queue.take();
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-        },"t2").start();
+        }, "t2").start();
     }
 }

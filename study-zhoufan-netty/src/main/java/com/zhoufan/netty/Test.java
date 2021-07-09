@@ -14,6 +14,6 @@ package com.zhoufan.netty;
 public class Test {
 
     public static void main(String[] args) {
-        
+
     }
 }

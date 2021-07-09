@@ -16,9 +16,9 @@ import java.util.concurrent.SynchronousQueue;
 public class SynchronizeAndReentrantLockDemo {
 
     public static void main(String[] args) {
-        SynchronousQueue<String> sa= new SynchronousQueue<>();
-        for(int i = 1; i <= 10; i++){
-            
+        SynchronousQueue<String> sa = new SynchronousQueue<>();
+        for (int i = 1; i <= 10; i++) {
+
         }
     }
 }

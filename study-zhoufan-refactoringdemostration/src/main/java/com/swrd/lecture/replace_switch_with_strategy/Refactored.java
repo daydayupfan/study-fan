@@ -8,21 +8,21 @@ public class Refactored {
     public FeeType getFeeCalculater(FeeTypeEnum type) {
 
         switch (type) {
-        case Normal: {
-            return new Normal();
-        }
+            case Normal: {
+                return new Normal();
+            }
 
-        case Rich: {
-            return new Rich();
-        }
+            case Rich: {
+                return new Rich();
+            }
 
-        case Poor: {
-            return new Poor();
-        }
+            case Poor: {
+                return new Poor();
+            }
 
-        default: {
-            return new Normal();
-        }
+            default: {
+                return new Normal();
+            }
         }
     }
 

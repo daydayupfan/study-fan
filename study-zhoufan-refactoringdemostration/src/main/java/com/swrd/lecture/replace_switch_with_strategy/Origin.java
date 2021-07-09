@@ -3,11 +3,12 @@ package com.swrd.lecture.replace_switch_with_strategy;
 public class Origin {
 
 
-    public enum FeeType{
+    public enum FeeType {
         Normal,
         Rich,
         Poor
     }
+
     public double calcPrice(FeeType type, double fee) {
 
         switch (type) {

@@ -11,7 +11,7 @@ class Refactored {
     }
 
     public double getTotalPrice() {
-       
+
         if (getPrice() > 1000.0) {
             return getPrice() * discount;
         }

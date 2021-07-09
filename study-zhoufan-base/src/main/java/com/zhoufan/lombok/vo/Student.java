@@ -15,8 +15,8 @@ import lombok.ToString;
 /**
  * Student.
  *
- * @version Araf v1.0
  * @author zhoufan, 2018年8月20日
+ * @version Araf v1.0
  */
 @Getter
 @Setter

@@ -10,14 +10,14 @@ public class UserDefineProducerInterceptor implements ProducerInterceptor {
     @Override
     public ProducerRecord onSend(ProducerRecord record) {
         ProducerRecord wrapRecord = new ProducerRecord(record.topic(), record.key(), record.value());
-        wrapRecord.headers().add("add","adasd".getBytes());
+        wrapRecord.headers().add("add", "adasd".getBytes());
         return wrapRecord;
 
     }
 
     @Override
     public void onAcknowledgement(RecordMetadata metadata, Exception exception) {
-        System.out.println("metadata:"+metadata+",exception:"+exception);
+        System.out.println("metadata:" + metadata + ",exception:" + exception);
     }
 
     @Override

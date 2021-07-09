@@ -22,32 +22,29 @@ public class CASTest {
      * 在工作区中运算之后 还需要将主内存和存入工作区的初始值作比较
      * 值相同true 则进行更新 反之更新失败
      * 因此在多线程中为了保证原子性 会进行多次重复操作
-     * */
-    public static void compareAndSetDemo(){
-        AtomicInteger atomicInteger=new AtomicInteger(5);
+     */
+    public static void compareAndSetDemo() {
+        AtomicInteger atomicInteger = new AtomicInteger(5);
 
-        System.out.println(atomicInteger.compareAndSet(5, 2019)+"当前值为="+atomicInteger);
-        System.out.println(atomicInteger.compareAndSet(5, 2019)+"当前值为="+atomicInteger);
+        System.out.println(atomicInteger.compareAndSet(5, 2019) + "当前值为=" + atomicInteger);
+        System.out.println(atomicInteger.compareAndSet(5, 2019) + "当前值为=" + atomicInteger);
 
     }
 
-    public static void testBigDecimal(){
-        BigDecimal a=new BigDecimal(4);
-        BigDecimal b=new BigDecimal(5);
+    public static void testBigDecimal() {
+        BigDecimal a = new BigDecimal(4);
+        BigDecimal b = new BigDecimal(5);
 
-        a=a.add(b);
+        a = a.add(b);
         System.out.println(a);
     }
 
-    public static void localDateTest(){
-        LocalDate parse=LocalDate.parse("20191001", DateTimeFormatter.ofPattern("yyyyMMdd"));
+    public static void localDateTest() {
+        LocalDate parse = LocalDate.parse("20191001", DateTimeFormatter.ofPattern("yyyyMMdd"));
 
         System.out.println(parse.toString());
 
     }
-    
-    
-
 
 
 }

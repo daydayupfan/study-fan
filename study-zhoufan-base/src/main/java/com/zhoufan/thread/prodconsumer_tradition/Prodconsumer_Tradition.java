@@ -18,18 +18,18 @@ import java.util.concurrent.locks.ReentrantLock;
 public class Prodconsumer_Tradition {
 
     public static void main(String[] args) {
-        
+
         MyCooker box = new MyCooker();
-        
-        new Thread(()->{
-            for (int i = 1;i <= 5;i++){
+
+        new Thread(() -> {
+            for (int i = 1; i <= 5; i++) {
                 box.increment();
             }
         }, "thread1").start();
 
 
-        new Thread(()->{
-            for (int i = 1;i <= 5;i++){
+        new Thread(() -> {
+            for (int i = 1; i <= 5; i++) {
                 box.decrement();
             }
         }, "thread2").start();
@@ -39,41 +39,41 @@ public class Prodconsumer_Tradition {
 
 class MyCooker {
     private int num;
-    
-    private Lock lock=new ReentrantLock();
 
-    private Condition condition=lock.newCondition();
-    
-    public void increment(){
+    private Lock lock = new ReentrantLock();
+
+    private Condition condition = lock.newCondition();
+
+    public void increment() {
         lock.lock();
         try {
             //等于0才进行叠加 不为0 阻塞
-            while (num != 0){
+            while (num != 0) {
                 condition.await();
             }
             num++;
-            System.out.println(Thread.currentThread().getName()+"   "+num);
+            System.out.println(Thread.currentThread().getName() + "   " + num);
             condition.signalAll();
         } catch (InterruptedException e) {
             e.printStackTrace();
-        }finally {
+        } finally {
             lock.unlock();
         }
     }
 
-    public void decrement(){
+    public void decrement() {
         lock.lock();
         try {
             //等于0才进行叠加 不为0 阻塞
-            while (num == 0){
+            while (num == 0) {
                 condition.await();
             }
             num--;
-            System.out.println(Thread.currentThread().getName()+"   "+num);
+            System.out.println(Thread.currentThread().getName() + "   " + num);
             condition.signalAll();
         } catch (InterruptedException e) {
             e.printStackTrace();
-        }finally {
+        } finally {
             lock.unlock();
         }
     }

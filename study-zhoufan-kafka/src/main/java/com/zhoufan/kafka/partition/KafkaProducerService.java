@@ -37,7 +37,7 @@ public class KafkaProducerService {
 
         for (int i = 0; i < 10; i++) {
             Thread.sleep(100);
-            ProducerRecord<String, String> record = new ProducerRecord<>("topic04", 0,"k" + i, "v" + i);
+            ProducerRecord<String, String> record = new ProducerRecord<>("topic04", 0, "k" + i, "v" + i);
             producer.send(record);
         }
         producer.close();

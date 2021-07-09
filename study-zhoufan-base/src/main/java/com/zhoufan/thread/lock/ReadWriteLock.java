@@ -10,57 +10,66 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 
 
-class MyCache{
-    private volatile Map<Integer, String> map= new HashMap<>();
-    
-    private ReentrantReadWriteLock lock =new ReentrantReadWriteLock();
-    
-    public String read(Integer key){
-        System.out.println(Thread.currentThread().getName()+"    正在读取..");
-        try { TimeUnit.SECONDS.sleep(1);} catch (InterruptedException e) { e.printStackTrace();}
-        String value =map.get(key);
-        System.out.println(Thread.currentThread().getName()+"    读取完成:"+value);
+class MyCache {
+    private volatile Map<Integer, String> map = new HashMap<>();
+
+    private ReentrantReadWriteLock lock = new ReentrantReadWriteLock();
+
+    public String read(Integer key) {
+        System.out.println(Thread.currentThread().getName() + "    正在读取..");
+        try {
+            TimeUnit.SECONDS.sleep(1);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        String value = map.get(key);
+        System.out.println(Thread.currentThread().getName() + "    读取完成:" + value);
         return value;
     }
 
-    public String read1(Integer key){
+    public String read1(Integer key) {
         lock.readLock().lock();
-        String value=null;
+        String value = null;
         try {
-            System.out.println(Thread.currentThread().getName()+"    正在读取..");
+            System.out.println(Thread.currentThread().getName() + "    正在读取..");
             TimeUnit.SECONDS.sleep(1);
-            value =map.get(key);
-            System.out.println(Thread.currentThread().getName()+"    读取完成:"+value);
-        }catch (Exception e){
+            value = map.get(key);
+            System.out.println(Thread.currentThread().getName() + "    读取完成:" + value);
+        } catch (Exception e) {
 
-        }finally {
+        } finally {
             lock.readLock().unlock();
         }
         return value;
     }
 
 
-    public void write(Integer key, String value){
-        System.out.println(Thread.currentThread().getName()+"     正在写入..");
-        try { TimeUnit.SECONDS.sleep(1);} catch (InterruptedException e) { e.printStackTrace();}
+    public void write(Integer key, String value) {
+        System.out.println(Thread.currentThread().getName() + "     正在写入..");
+        try {
+            TimeUnit.SECONDS.sleep(1);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         map.put(key, value);
-        System.out.println(Thread.currentThread().getName()+"     写入完成");
+        System.out.println(Thread.currentThread().getName() + "     写入完成");
     }
 
-    public void write1(Integer key, String value){
+    public void write1(Integer key, String value) {
         lock.writeLock().lock();
         try {
-            System.out.println(Thread.currentThread().getName()+"     正在写入..");
+            System.out.println(Thread.currentThread().getName() + "     正在写入..");
             TimeUnit.SECONDS.sleep(1);
             map.put(key, value);
-            System.out.println(Thread.currentThread().getName()+"     写入完成");
-        }catch (Exception e){
+            System.out.println(Thread.currentThread().getName() + "     写入完成");
+        } catch (Exception e) {
 
-        }finally {
+        } finally {
             lock.writeLock().unlock();
         }
     }
 }
+
 /**
  * 读写锁 ReadWriteLock.
  *
@@ -69,7 +78,7 @@ class MyCache{
  */
 
 public class ReadWriteLock {
-    
+
     public static void main(String[] args) {
 
 
@@ -95,7 +104,7 @@ public class ReadWriteLock {
          * writer0     写入完成
          * 4    读取完成:null
          * 1    读取完成:null
-         * 
+         *
          * 加锁后
          * writer0     正在写入..
          * writer0     写入完成
@@ -119,42 +128,42 @@ public class ReadWriteLock {
          * 3    读取完成:3
          */
 
-        MyCache cache=new MyCache();
+        MyCache cache = new MyCache();
 //        noAddLock(cache);
-        
+
         addLock(cache);
     }
-    
-    public static void noAddLock(MyCache cache){
-        for (int i = 0;i < 5; i++){
-            final Integer key=i;
-            new Thread(()->{
-                cache.write(key, key+"");
-            }, "writer"+key).start();
+
+    public static void noAddLock(MyCache cache) {
+        for (int i = 0; i < 5; i++) {
+            final Integer key = i;
+            new Thread(() -> {
+                cache.write(key, key + "");
+            }, "writer" + key).start();
         }
 
-        for (int i = 0;i < 5; i++){
-            final Integer key=i;
-            new Thread(()->{
-                String value=cache.read(key);
-            }, key+"").start();
+        for (int i = 0; i < 5; i++) {
+            final Integer key = i;
+            new Thread(() -> {
+                String value = cache.read(key);
+            }, key + "").start();
         }
     }
-    
-    public static void addLock(MyCache cache){
-        for (int i = 0;i < 5; i++){
-            final Integer key=i;
-            new Thread(()->{
-                cache.write1(key, key+"");
-            }, "writer"+key).start();
+
+    public static void addLock(MyCache cache) {
+        for (int i = 0; i < 5; i++) {
+            final Integer key = i;
+            new Thread(() -> {
+                cache.write1(key, key + "");
+            }, "writer" + key).start();
         }
 
-        for (int i = 0;i < 5; i++){
-            final Integer key=i;
-            new Thread(()->{
-                String value=cache.read1(key);
-            }, key+"").start();
+        for (int i = 0; i < 5; i++) {
+            final Integer key = i;
+            new Thread(() -> {
+                String value = cache.read1(key);
+            }, key + "").start();
         }
     }
-    
+
 }

@@ -30,7 +30,7 @@ public class KafkaConsumerService {
         KafkaConsumer<String, String> consumer = new KafkaConsumer<String, String>(props);
         //3.订阅topic开头的消息队列
         consumer.subscribe(Arrays.asList("topic04"));
-        
+
         while (true) {
             ConsumerRecords<String, String> consumerRecords = consumer.poll(Duration.ofSeconds(1));
             Iterator<ConsumerRecord<String, String>> recordIterator = consumerRecords.iterator();

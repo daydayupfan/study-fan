@@ -22,23 +22,23 @@ public class SemaphoreDemo {
 
     public static void main(String[] args) {
         //总共五桌
-        Semaphore semaphore=new Semaphore(5);
+        Semaphore semaphore = new Semaphore(5);
         //10波顾客
-        for(int i = 1;i <= 10; i++){
-            new Thread(()->{
-                String name=Thread.currentThread().getName();
+        for (int i = 1; i <= 10; i++) {
+            new Thread(() -> {
+                String name = Thread.currentThread().getName();
                 try {
                     semaphore.acquire();
-                    System.out.println("顾客"+name+"   开始用餐....");
+                    System.out.println("顾客" + name + "   开始用餐....");
                     TimeUnit.SECONDS.sleep(3);
-                    System.out.println("顾客"+name+"   用餐3小时");
+                    System.out.println("顾客" + name + "   用餐3小时");
                 } catch (InterruptedException e) {
                     e.printStackTrace();
-                }finally{
+                } finally {
                     semaphore.release();
                 }
-            }, i+"").start();
+            }, i + "").start();
         }
-        
+
     }
 }
