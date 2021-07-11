@@ -13,4 +13,11 @@
     <artifactId>com-zhoufan-springboot</artifactId>
 
 
+    <dependencies>
+        <dependency>
+            <groupId></groupId>
+            <artifactId></artifactId>
+        </dependency>
+    </dependencies>
+
 </project>

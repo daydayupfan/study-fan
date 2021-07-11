@@ -10,6 +10,7 @@
         <module>study-zhoufan-refactoringdemostration</module>
         <module>study-zhoufan-netty</module>
         <module>com-zhoufan-springboot</module>
+        <module>com-zhoufan-springcloud</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>

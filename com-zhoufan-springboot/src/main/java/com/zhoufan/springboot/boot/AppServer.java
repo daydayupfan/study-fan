@@ -6,6 +6,8 @@ package com.zhoufan.springboot.boot;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.support.AbstractXmlApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
  * AppServer 启动类.
@@ -19,5 +21,12 @@ public class AppServer {
 
     public static void main(String[] args) {
         SpringApplication.run(AppServer.class);
+    }
+
+
+
+    public static void springBeanLifeCyc(){
+        AbstractXmlApplicationContext context = new ClassPathXmlApplicationContext("");
+        Object bean = context.getBean("");
     }
 }
